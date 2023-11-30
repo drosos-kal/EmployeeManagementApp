@@ -1,0 +1,27 @@
+﻿@viewModel EmployeeManagementChallenge.ViewModels.Skills.SkillsViewModel, EmployeeManagementChallenge
+@masterPage Views/MasterPage.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <div class="page-center p-4 text-dark">
+        <div class="page-grid-top">
+
+            <h1 class="text-dark display-4">Skill List</h1>
+        </div>
+
+        <dot:GridView DataSource="{value: Skills}" class="table table-striped table-bordered">
+            <Columns>
+                <dot:GridViewTextColumn ValueBinding="{value: Name}" HeaderText="Skill Name" />
+                <dot:GridViewTextColumn ValueBinding="{value: Details}" HeaderText="Details" />
+                <dot:GridViewTextColumn ValueBinding="{value: TimeCreated}" HeaderText="Created at" />
+                <dot:GridViewTemplateColumn>
+                    <div class="w-75">
+                        <dot:RouteLink Text="View / Update Skill" RouteName="Skills_CRUD_Update" class="btn btn-secondary mx-2" Param-Id="{{value: Id}}"></dot:RouteLink>
+                    </div>
+                </dot:GridViewTemplateColumn>
+            </Columns>
+        </dot:GridView>
+        <dot:RouteLink Text="Create new skill" RouteName="Skills_CRUD_Create" class="btn btn-dark mx-2" />
+        <dot:RouteLink Text="Back to navigation" RouteName="Default" class="btn btn-outline-dark mx-2" />
+
+    </div>
+</dot:Content>

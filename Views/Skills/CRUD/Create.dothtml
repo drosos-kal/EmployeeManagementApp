@@ -1,0 +1,31 @@
+﻿@viewModel EmployeeManagementChallenge.ViewModels.Skills.CRUD.CreateViewModel, EmployeeManagementChallenge
+@masterPage Views/MasterPage.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <div class="border p-3 mt-4">
+        <form class="page-box"
+              Validator.InvalidCssClass="has-error"
+              Validator.SetToolTipText="true">
+            <div class="row pb-2">
+                <h2 class="text-dark display-4">Create Skill</h2>
+            </div>
+            <div Validator.Value="{value: skill.Name}" class="mb-3 row p-1">
+                <label class="p-0">Skill Name</label>
+                <dot:TextBox Text="{value: skill.Name}" class="form-control" />
+            </div>
+            <div Validator.Value="{value: skill.Details}" class="mb-3 row p-1">
+                <label class="p-0">Skill Details</label>
+                <dot:TextBox Text="{value: skill.Details}" class="form-control" />
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-3">
+                    <dot:Button Text="Create" Click="{command: AddSkill()}" class="btn btn-dark mx-2 form-control" IsSubmitButton />
+                </div>
+                <div class="col-6 col-md-3">
+                    <dot:RouteLink RouteName="Skills_Skills" Text="Back to List" class="btn btn-secondary border form-control" />
+                </div>
+            </div>
+        </form>
+    </div>
+</dot:Content>
+

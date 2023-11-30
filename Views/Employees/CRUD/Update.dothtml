@@ -1,0 +1,55 @@
+﻿@viewModel EmployeeManagementChallenge.ViewModels.Employees.CRUD.UpdateViewModel, EmployeeManagementChallenge
+@masterPage Views/MasterPage.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <div class="border p-3 mt-4">
+        <form class="page-box"
+              Validator.InvalidCssClass="has-error"
+              Validator.SetToolTipText="true">
+            <div class="row pb-2">
+                <h2 class="text-dark display-4">Employee List</h2>
+                <hr />
+            </div>
+            <div Validator.Value="{value: employee.Firstname}" class="mb-3 row p-1">
+                <label class="p-0">First Name</label>
+                <dot:TextBox Text="{value: employee.Firstname}" class="form-control" />
+            </div>
+            <div Validator.Value="{value: employee.Lastname}" class="mb-3 row p-1">
+                <label class="p-0">Last Name</label>
+                <dot:TextBox Text="{value: employee.Lastname}" class="form-control" />
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <h3>Known Skills</h3>
+                    <dot:Repeater DataSource="{value: skillsToLearn}">
+                        <div class="mb-1">
+                            <dot:Button Text="{value: Name}" Click="{command: _root.RemoveFromKnownSkills(_this)}" class="btn btn-outline-dark btn-block" />
+                        </div>
+                    </dot:Repeater>
+                </div>
+                <div class="col-md-6">
+                    <h3>Available Skills</h3>
+                    <div>
+                        <dot:Repeater DataSource="{value: skillsAvailable}">
+                            <div class="mb-1">
+                                <dot:Button Text="{value: Name}" Click="{command: _root.AddToKnownSkills(_this)}" class="btn btn-outline-dark btn-block" />
+                            </div>
+                        </dot:Repeater>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-6 col-md-3">
+                    <dot:Button Text="Update" Click="{command: UpdateEmployee()}" class="btn btn-dark mx-2 form-control" IsSubmitButton />
+                </div>
+                <div class="col-6 col-md-3">
+                    <dot:Button Text="Delete" Click="{command:DeleteEmployee()}" class="btn btn-secondary mx-2 form-control" IsSubmitButton />
+                </div>
+                <div class="col-6 col-md-3">
+                    <dot:RouteLink RouteName="Employees_Employees" Text="Back to List" class="btn btn-outline-dark form-control" />
+                </div>
+            </div>
+        </form>
+    </div>
+</dot:Content>

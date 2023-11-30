@@ -1,0 +1,25 @@
+﻿@viewModel EmployeeManagementChallenge.ViewModels.DefaultViewModel, EmployeeManagementChallenge
+@masterPage Views/MasterPage.dotmaster
+
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <div class="content">
+        <img src="/Resources/Images/tree.svg" class="content__background-image content__background-image--left" />
+        <div class="content__text">
+            <div class="col-md-6">
+                <div class="content__text text-center my-5">
+                    <h1 class="display-4 text-dark">Employee Management App</h1>
+
+                    <div class="btn-group btn-group-lg mt-4" role="group">
+                        <dot:RouteLink class="btn btn-outline-dark mx-2" Text="View Skills" RouteName="Skills_Skills" />
+                        <dot:RouteLink class="btn btn-outline-dark mx-2" Text="View Employees" RouteName="Employees_Employees" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="/Resources/Images/tree.svg" class="content__background-image content__background-image content__background-image--right" />
+    </div>
+</dot:Content>
+
+
+

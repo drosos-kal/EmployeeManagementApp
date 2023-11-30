@@ -1,0 +1,42 @@
+﻿@viewModel EmployeeManagementChallenge.ViewModels.Skills.CRUD.UpdateViewModel, EmployeeManagementChallenge
+@masterPage Views/MasterPage.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <div class="border p-4 mt-4">
+        <form class="page-box"
+              Validator.InvalidCssClass="has-error"
+              Validator.SetToolTipText="true">
+            <div class="row pb-2">
+                <h2 class="text-dark display-4">Skill Details</h2>
+            </div>
+            <div Validator.Value="{value: Skill.Name}" class="mb-3 row p-1">
+                <label class="p-0">Skill Name</label>
+                <dot:TextBox Text="{value: Skill.Name}" class="form-control" />
+            </div>
+            <div Validator.Value="{value: Skill.Details}" class="mb-3 row p-1">
+                <label class="p-0">Skill Details</label>
+                <dot:TextBox Text="{value: Skill.Details}" class="form-control" />
+            </div>
+            <div class="mb-3 row p-1">
+                <label class="p-0">Date Created</label>
+                <dot:TextBox Text="{value: Skill.TimeCreated}" disabled class="form-control" />
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-md-3">
+                    <dot:Button Text="Update" Click="{command: UpdateSkill()}" class="btn btn-dark mx-2 form-control" IsSubmitButton />
+                </div>
+                <div class="col-6 col-md-3">
+                    <dot:Button Text="Delete" Click="{command:DeleteSkill()}" class="btn btn-secondary mx-2 form-control" IsSubmitButton />
+                </div>
+                <div class="col-6 col-md-3">
+                    <dot:RouteLink RouteName="Skills_Skills" Text="Back to List" class="btn btn-outline-dark mx-2 form-control" />
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</dot:Content>
+
