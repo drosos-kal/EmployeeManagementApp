@@ -21,9 +21,9 @@ namespace EmployeeManagementChallenge.Services
             _skillRepository = skillRepository;
         }
 
-        public async Task<List<Skill>> GetAllSkills()
+        public List<Skill> GetAllSkills()
         {
-            // Expression<Func<Skill, bool>> filter
+
             var skillsEntities = _skillRepository.GetAll();
 
             var skills = skillsEntities.Select(s => new Skill
@@ -38,7 +38,7 @@ namespace EmployeeManagementChallenge.Services
 
         }
 
-        public async Task<Skill> GetSkillById(int? skillId)
+        public Skill GetSkillById(int? skillId)
         {
             if (skillId == 0) return null;
 
@@ -48,7 +48,7 @@ namespace EmployeeManagementChallenge.Services
             return skillFromDb;
         }
 
-        public async Task<Skill> GetSkillByName(string Name)
+        public Skill GetSkillByName(string Name)
         {
             Skill? skillFromDb = _skillRepository.Get(s => s.Name == Name);
 
@@ -56,7 +56,7 @@ namespace EmployeeManagementChallenge.Services
 
         }
 
-        public async Task<Skill> InsertSkill(Skill skill)
+        public Skill InsertSkill(Skill skill)
         {
 
             var entity = new Skill()
@@ -73,7 +73,7 @@ namespace EmployeeManagementChallenge.Services
             return entity;
         }
 
-        public async Task UpdateSkill(Skill skill)
+        public Skill UpdateSkill(Skill skill)
         {
 
             Skill skillFromDb = _skillRepository.Get(s => s.Id == skill.Id);
@@ -86,9 +86,11 @@ namespace EmployeeManagementChallenge.Services
                 _skillRepository.Update(skillFromDb);
                 _skillRepository.Save();
             }
+
+            return skillFromDb;
         }
 
-        public async Task DeleteSkill(int? skillId)
+        public void DeleteSkill(int? skillId)
         {
             if (skillId == null || skillId == 0)
             {

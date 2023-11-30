@@ -44,7 +44,7 @@ namespace EmployeeManagementChallenge.ViewModels.Employees
                     foreach (var id in xx)
                     {
                         int id_skill = Convert.ToInt32(id);
-                        var skill = await skillService.GetSkillById(id_skill);
+                        var skill = skillService.GetSkillById(id_skill);
                         if (skill != null)
                         {
                             t.Skills.Add(new tableobj.Skill

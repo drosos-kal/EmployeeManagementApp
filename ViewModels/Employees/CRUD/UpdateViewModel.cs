@@ -36,7 +36,7 @@ namespace EmployeeManagementChallenge.ViewModels.Employees.CRUD
                 if (Id != 0)
                 {
                     employee = await employeeService.GetEmployeeById(Id);
-                    skillsAvailable = await skillService.GetAllSkills();
+                    skillsAvailable = skillService.GetAllSkills();
 
                     if (employee.Skills != null)
                     {
@@ -45,7 +45,7 @@ namespace EmployeeManagementChallenge.ViewModels.Employees.CRUD
                         foreach (var id in skillsKnown)
                         {
                             int id_skill = Convert.ToInt32(id);
-                            var skill = await skillService.GetSkillById(id_skill);
+                            var skill = skillService.GetSkillById(id_skill);
                             if (skill != null)
                             {
                                 skillsToLearn.Add(new Skill

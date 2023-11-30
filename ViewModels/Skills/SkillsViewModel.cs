@@ -23,7 +23,7 @@ namespace EmployeeManagementChallenge.ViewModels.Skills
 
         public override async Task PreRender()
         {
-            Skills = await skillService.GetAllSkills();
+            Skills = skillService.GetAllSkills();
 
             await base.PreRender();
         }

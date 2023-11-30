@@ -29,20 +29,20 @@ namespace EmployeeManagementChallenge.ViewModels.Skills.CRUD
         {
             if (Id != 0)
             {
-                Skill = await skillService.GetSkillById(Id);
+                Skill = skillService.GetSkillById(Id);
             }
             await base.PreRender();
         }
 
         public async Task UpdateSkill()
         {
-            await skillService.UpdateSkill(Skill);
+            skillService.UpdateSkill(Skill);
             Context.RedirectToRoute("Skills_Skills");
         }
 
         public async Task DeleteSkill()
         {
-            await skillService.DeleteSkill(Id);
+            skillService.DeleteSkill(Id);
             Context.RedirectToRoute("Skills_Skills");
         }
 

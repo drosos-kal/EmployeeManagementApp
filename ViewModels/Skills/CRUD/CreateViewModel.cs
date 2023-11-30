@@ -19,7 +19,7 @@ namespace EmployeeManagementChallenge.ViewModels.Skills.CRUD
 
         public async Task AddSkill()
         {
-            await skillService.InsertSkill(skill);
+            skillService.InsertSkill(skill);
             Context.RedirectToRoute("Skills_Skills");
         }
     }

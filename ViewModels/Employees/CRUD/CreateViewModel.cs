@@ -28,7 +28,7 @@ namespace EmployeeManagementChallenge.ViewModels.Employees.CRUD
 
         public async Task AddEmployee()
         {
-            var skillToCheck = await skillService.GetSkillByName(skill.Name);
+            var skillToCheck = skillService.GetSkillByName(skill.Name);
 
 
             if (skillToCheck != null)
